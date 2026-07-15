@@ -1,0 +1,8 @@
+2026-07-16 01:10:00 INFO  Job started on Windows 10
+2026-07-16 01:10:05 INFO  ENVIRONMENT staging
+2026-07-16 01:10:12 ERROR Invalid target release: 11
+2026-07-16 01:10:15 FAIL  Scenario Test_4 failed
+2026-07-16 01:10:20 INFO  Retry scheduled for Test_4
+2026-07-16 01:10:28 ERROR Maven surefire reported a failure
+2026-07-16 01:10:35 FAIL  Scenario Test_Task3_Fail failed
+2026-07-16 01:10:40 INFO  Job finished with status failed

@@ -103,6 +103,10 @@ public class Test1 {
         extent.attachReporter(json, spark);
         ExtentTest test1 = extent.createTest("demo application test 1-1", "To Do App test 1");
 
+        // Task 2: read custom env var injected by HyperExecute YAML `env:` block
+        String environment = System.getenv("ENVIRONMENT");
+        System.out.println("Task2_ENVIRONMENT=" + environment);
+
         driver.get(testURL);
         Thread.sleep(5000);
 

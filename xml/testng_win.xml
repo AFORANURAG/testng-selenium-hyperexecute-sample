@@ -42,4 +42,10 @@
 				<class name="Test4" />
 			</classes>
 	</test>
+	<!-- Task 3: dedicated hard-fail scenario for retryOnFailure demo -->
+	<test name="Test_Task3_Fail">
+			<classes>
+				<class name="Task3FailTest" />
+			</classes>
+	</test>
 </suite>

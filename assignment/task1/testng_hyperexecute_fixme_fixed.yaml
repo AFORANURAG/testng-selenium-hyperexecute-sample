@@ -1,0 +1,28 @@
+---
+version: 0.1
+runson: win
+
+autosplit: true
+concurrency: 1
+
+runtime:
+  language: java
+  version: 11
+
+env:
+  TOKEN: anvdegtod-asdaasda0asda-asda
+
+pre:
+  - mvn dependency:resolve
+
+testDiscovery:
+  type: raw
+  mode: local
+  command: grep 'test name' xml/testng_win.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
+
+testRunnerCommand: mvn test `-Dplatname=win `-Dmaven.repo.local=./.m2 `-DselectedTests=$test
+
+retryOnFailure: true
+maxRetries: 1
+
+jobLabel: [selenium-testng, win, v1, autosplit]

@@ -1,0 +1,31 @@
+---
+version: 0.1
+runson: win
+
+autosplit: true
+concurrency: 1
+
+runtime:
+  language: java
+  version: 11
+
+env:
+  TOKEN: anvdegtod-asdaasda0asda-asda
+  ENVIRONMENT: staging
+
+pre:
+  - mvn dependency:resolve
+
+# Discover only the intentional fail scenario so retry evidence is clear
+testDiscovery:
+  type: raw
+  mode: local
+  command: grep 'test name="Test_Task3_Fail"' xml/testng_win.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
+
+testRunnerCommand: mvn test `-Dplatname=win `-Dmaven.repo.local=./.m2 `-DselectedTests=$test
+
+# Task 3: retry the failed testRunnerCommand once
+retryOnFailure: true
+maxRetries: 1
+
+jobLabel: [selenium-testng, win, v1, autosplit, task3]
